@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#23456f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Экономика">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="description" content="Теоретическая часть курса «Экономика без спешки»: определения, формулы, разобранные примеры, типичные ошибки и вопросы для самопроверки по пяти темам.">
+<title>Конспект — Экономика без спешки</title>
+<style>
+:root{
+  color-scheme:light;
+  --paper:#f7f3e9;
+  --card:#fffdf6;
+  --ink:#1a2433;
+  --blue:#23456f;
+  --red:#b23a2f;
+  --green:#2f6b4f;
+  --muted:#5d6b7a;
+  --line:rgba(26,36,51,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);
+  font:18px/1.7 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:
+    repeating-linear-gradient(180deg,rgba(26,36,51,.05) 0 1px,transparent 1px 34px),
+    var(--paper);
+  -webkit-font-smoothing:antialiased;overflow-wrap:break-word;
+}
+@supports (padding: env(safe-area-inset-top)){
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  .top{padding-top:env(safe-area-inset-top)}
+}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.16;letter-spacing:-.01em;margin:0}
+p{margin:0 0 16px}
+a{color:var(--blue)}
+button{font:inherit}
+.skip{position:absolute;left:-9999px;top:0;background:var(--blue);color:#fff;padding:12px 18px;z-index:30}
+.skip:focus{left:12px;top:12px}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:20;background:rgba(247,243,233,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.top-in{width:min(1060px,100% - 40px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none}
+.logo{width:42px;height:42px;flex:none;border:2px solid var(--blue);border-radius:10px;display:grid;place-items:center;font:700 15px Georgia,serif;color:var(--blue)}
+.brand b{display:block;font-family:Georgia,serif;font-size:19px;line-height:1.1}
+.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+.top-links{display:flex;gap:6px;flex-wrap:wrap}
+.top-links a{padding:9px 12px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:15px}
+.top-links a:hover{background:rgba(35,69,111,.08);color:var(--blue)}
+.top-links a:focus-visible{outline:3px solid rgba(35,69,111,.35);outline-offset:2px}
+
+/* обложка */
+.wrap{width:min(820px,100% - 40px);margin:0 auto}
+.cover{padding:clamp(40px,6vw,72px) 0 24px}
+.eyebrow{margin:0 0 10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+h1{font-size:clamp(32px,4.6vw,50px);margin:0 0 16px}
+.lead{font-size:20px;color:#3a4a5c;max-width:34em}
+.note{margin:24px 0 8px;padding:14px 18px;background:rgba(35,69,111,.07);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;max-width:38em}
+.note p{margin:0}
+.cover-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border:2px solid var(--blue);border-radius:10px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;cursor:pointer}
+.btn:hover{background:#1a3556;border-color:#1a3556}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.ghost:hover{background:rgba(35,69,111,.08);color:var(--blue)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid rgba(35,69,111,.4);outline-offset:3px}
+
+/* оглавление */
+.toc{margin:26px 0 0;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.toc-title{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.toc ol{margin:0;padding-left:22px;display:grid;gap:6px}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+/* темы */
+.theory{padding:clamp(38px,5vw,60px) 0;border-top:1px solid var(--line);scroll-margin-top:84px}
+.sec-no{margin:0 0 6px;font-family:Georgia,serif;font-size:15px;letter-spacing:.16em;color:var(--blue);font-variant-numeric:tabular-nums}
+.theory h2{font-size:clamp(26px,3.4vw,34px);margin:0 0 18px}
+.theory h3{font-size:20px;margin:26px 0 10px}
+.theory p{max-width:40em}
+.concepts{margin:0 0 22px;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.concepts dl{margin:0;display:grid;gap:10px}
+.concepts dt{font-weight:600}
+.concepts dd{margin:2px 0 0;color:#3a4a5c}
+.formula{margin:22px 0;padding:14px 18px;background:rgba(35,69,111,.07);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;max-width:40em;font-size:19px;font-variant-numeric:tabular-nums}
+.formula b{color:var(--blue)}
+.example{margin:22px 0;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:40em}
+.example-title{margin:0 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.example p:last-child{margin:0}
+.calc{font-variant-numeric:tabular-nums}
+.mistake{margin:22px 0;padding:12px 16px;background:rgba(178,58,47,.06);border-left:4px solid var(--red);border-radius:0 10px 10px 0;max-width:40em}
+.mistake b{color:var(--red)}
+.self{margin:22px 0 0;padding:0 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:40em}
+.self summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.self summary::-webkit-details-marker{display:none}
+.self summary::after{content:"+";font-family:Georgia,serif;font-size:24px;line-height:1;color:var(--blue)}
+.self[open] summary::after{content:"–"}
+.self-body{padding:0 0 16px}
+.self-body p{margin:0 0 10px}
+.self-body p:last-child{margin:0}
+.self-body b{color:var(--green)}
+
+/* шпаргалка */
+.cheat{padding:clamp(38px,5vw,60px) 0 20px;border-top:1px solid var(--line)}
+.cheat h2{font-size:clamp(26px,3.4vw,34px);margin:0 0 18px}
+.table-wrap{overflow-x:auto;border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:17px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;background:#fbf9f2}
+td:nth-child(2){font-variant-numeric:tabular-nums;white-space:nowrap}
+
+footer{padding:30px 0 56px;color:var(--muted);font-size:15px}
+footer p{margin:0 0 .5em}
+
+@media (max-width:600px){
+  body{font-size:17px}
+  .top-in{gap:8px}
+  td:nth-child(2){white-space:normal}
+}
+
+@media print{
+  body{background:#fff;font-size:12pt}
+  .top,.toc,.cover-actions,footer{display:none}
+  .wrap{width:100%}
+  .theory,.cheat{page-break-inside:avoid;border-top:1px solid #ccc}
+  .self{display:none}
+  .example,.concepts,.formula,.mistake{border:1px solid #bbb;background:#fff}
+  a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Перейти к содержанию</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="./">
+      <span class="logo" aria-hidden="true">ЭБС</span>
+      <span><b>Экономика без спешки</b><small>конспект курса</small></span>
+    </a>
+    <nav class="top-links" aria-label="Навигация">
+      <a href="./">← К курсу</a>
+      <a href="#cheat">Шпаргалка</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="wrap">
+    <div class="cover">
+      <p class="eyebrow">Теоретическая часть</p>
+      <h1>Конспект курса</h1>
+      <p class="lead">Пять тем — от выбора до налогов. Определения, формулы, разобранные примеры и типичные ошибки. Задания к каждой теме — в самом курсе.</p>
+      <div class="note"><p><b>Как читать.</b> По одной теме за раз. Если формула кажется непонятной, вернитесь к примеру: в нём всегда есть расчёт по шагам с числами.</p></div>
+      <div class="cover-actions">
+        <a class="btn" href="./">Перейти к заданиям</a>
+        <button class="btn ghost" id="printBtn" type="button">Распечатать конспект</button>
+      </div>
+
+      <nav class="toc" aria-label="Темы конспекта">
+        <p class="toc-title">Содержание</p>
+        <ol>
+          <li><a href="#l1">Выбор и цена отказа</a></li>
+          <li><a href="#l2">Проценты: как растёт вклад</a></li>
+          <li><a href="#l3">Инфляция: что происходит с деньгами</a></li>
+          <li><a href="#l4">Рынок: спрос и предложение</a></li>
+          <li><a href="#l5">Государство: налоги, ВВП, пенсии</a></li>
+          <li><a href="#cheat">Шпаргалка с формулами</a></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="theory" id="l1">
+      <p class="sec-no">01</p>
+      <h2>Выбор и цена отказа</h2>
+
+      <div class="concepts">
+        <dl>
+          <dt>Ресурсы</dt>
+          <dd>То, чем мы располагаем: время, деньги, силы, оборудование.</dd>
+          <dt>Альтернативная стоимость</dt>
+          <dd>Ценность лучшего варианта, от которого отказались, делая выбор.</dd>
+          <dt>Явные затраты</dt>
+          <dd>Деньги, которые реально уплачены: билет, плата за курсы, покупка.</dd>
+          <dt>Экономические затраты</dt>
+          <dd>Явные расходы плюс упущенная выгода — то, что можно было получить вместо этого.</dd>
+        </dl>
+      </div>
+
+      <p>Потребности человека безграничны, а ресурсы ограничены. Из этого простого факта вырастает вся экономика: приходится выбирать, на что потратить время и деньги. Выбор всегда означает отказ — и у этого отказа есть цена.</p>
+      <p>Цену отказа называют альтернативной стоимостью. Это не сумма, которую вы заплатили, а ценность лучшей из возможностей, которыми пожертвовали. Важно: берут именно лучший отвергнутый вариант, а не сумму всех отказов.</p>
+      <p>Если вариант требует и денег, и времени, учитывают оба вида затрат. Явные расходы видны в чеке. Упущенная выгода в чеке не видна, но она реальна: за те же часы можно было заработать.</p>
+
+      <div class="formula">Альтернативная стоимость = <b>ценность лучшего отвергнутого варианта</b><br>Экономические затраты = <b>явные расходы + упущенная выгода</b></div>
+
+      <div class="example">
+        <p class="example-title">Пример 1</p>
+        <p>Иван Петрович может за 3 часа заработать 900 ₽ на подработке — или пойти на бесплатные курсы. Выбрав курсы, он теряет <span class="calc">300 × 3 = 900 ₽</span>. Это и есть альтернативная стоимость обучения, хотя сами курсы бесплатны.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 2</p>
+        <p>Тот же Иван Петрович отказался от кино (билет 500 ₽), чтобы выйти на подработку. Альтернативная стоимость подработки — <b>поход в кино</b>, а не 500 ₽: он пожертвовал отдыхом, а не деньгами. Цена билета — лишь часть ценности этого вечера.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 3</p>
+        <p>Курсы стоят 4 500 ₽, а за те же часы можно было заработать 13 500 ₽. Бухгалтерские затраты — <span class="calc">4 500 ₽</span>. Экономические — <span class="calc">4 500 + 13 500 = 18 000 ₽</span>.</p>
+      </div>
+
+      <div class="mistake"><b>Частая ошибка.</b> Складывать все отказы подряд или считать ценой выбора только потраченные деньги. Если вы отказались от кино, чтобы поработать, цена выбора — кино, а не стоимость проезда до работы.</div>
+
+      <details class="self">
+        <summary>Проверьте себя</summary>
+        <div class="self-body">
+          <p><b>1.</b> Вы отказались от поездки на дачу, чтобы выйти на подработку. Что здесь альтернативная стоимость подработки?<br><b>Ответ.</b> Поездка на дачу — лучший отвергнутый вариант. Заработанные деньги — результат выбора, а не его цена.</p>
+          <p><b>2.</b> Курсы стоят 6 000 ₽; в те же часы можно было заработать 9 000 ₽. Чему равны бухгалтерские и экономические затраты?<br><b>Ответ.</b> Бухгалтерские — 6 000 ₽, только оплата. Экономические — 6 000 + 9 000 = 15 000 ₽.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="theory" id="l2">
+      <p class="sec-no">02</p>
+      <h2>Проценты: как растёт вклад</h2>
+
+      <div class="concepts">
+        <dl>
+          <dt>Процент</dt>
+          <dd>Плата банка за то, что вы держите у него деньги. Ставка указывается в процентах годовых.</dd>
+          <dt>Простой процент</dt>
+          <dd>Начисляется каждый год от одной и той же первоначальной суммы.</dd>
+          <dt>Капитализация</dt>
+          <dd>Начисленные проценты прибавляются к вкладу, и в следующем году процент идёт уже на большую сумму.</dd>
+          <dt>Сложный процент</dt>
+          <dd>Доход, который растёт по схеме «проценты на проценты».</dd>
+        </dl>
+      </div>
+
+      <p>Если 100 000 ₽ лежат под 10% годовых, за год начислят 10 000 ₽. Это простой процент: сумма процентов считается от первоначального вклада.</p>
+      <p>Когда проценты не забирают, банк прибавляет их к вкладу. Во второй год 10% начисляют уже на 110 000 ₽, а не на 100 000 ₽. Так работает капитализация, и итог получается больше.</p>
+
+      <div class="formula">Проценты за год = <b>P × r</b><br>Простой процент за n лет = <b>P × r × n</b> или <b>P × (1 + r × n)</b><br>Сложный процент = <b>P × (1 + r)<sup>n</sup></b><br><span style="font-size:15px;color:var(--muted)">P — сумма вклада, r — ставка в долях (10% = 0,10), n — число лет</span></div>
+
+      <div class="example">
+        <p class="example-title">Пример 1</p>
+        <p>100 000 ₽ под 10%: за год <span class="calc">100 000 × 0,10 = 10 000 ₽</span>. На счёте 110 000 ₽.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 2</p>
+        <p>Те же 100 000 ₽ с капитализацией на два года: <span class="calc">100 000 × 1,1 × 1,1 = 121 000 ₽</span>. Без капитализации было бы 120 000 ₽ — разница в 1 000 ₽ и есть проценты на проценты.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 3</p>
+        <p>50 000 ₽ под 10% на три года с капитализацией: <span class="calc">50 000 × 1,1³ = 66 550 ₽</span>.</p>
+      </div>
+
+      <div class="mistake"><b>Частая ошибка.</b> Складывать ставки за несколько лет: 10% + 10% = 20%. При капитализации верно умножать: 1,1 × 1,1 = 1,21, то есть 21%. Разница кажется мелочью, но на больших суммах и сроках она растёт.</div>
+
+      <details class="self">
+        <summary>Проверьте себя</summary>
+        <div class="self-body">
+          <p><b>1.</b> 20 000 ₽ под 10% на два года с ежегодной капитализацией — сколько будет?<br><b>Ответ.</b> 20 000 × 1,1² = 24 200 ₽.</p>
+          <p><b>2.</b> 100 000 ₽ под 10% без капитализации за два года — сколько процентов начислят?<br><b>Ответ.</b> По 10 000 ₽ в год, всего 20 000 ₽. С капитализацией было бы 21 000 ₽.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="theory" id="l3">
+      <p class="sec-no">03</p>
+      <h2>Инфляция: что происходит с деньгами</h2>
+
+      <div class="concepts">
+        <dl>
+          <dt>Инфляция</dt>
+          <dd>Рост общего уровня цен. Если цены выросли на 8%, на ту же сумму можно купить примерно на 8% меньше.</dd>
+          <dt>Номинальный доход</dt>
+          <dd>Сколько денег начислили — без поправки на цены.</dd>
+          <dt>Реальный доход</dt>
+          <dd>Сколько товаров и услуг можно купить на эти деньги.</dd>
+          <dt>Покупательная способность</dt>
+          <dd>Сколько стоит ваша сумма в товарах, а не в рублях.</dd>
+        </dl>
+      </div>
+
+      <p>Инфляция обесценивает деньги: та же тысяча рублей через год покупает меньше. Поэтому доходность вклада нужно сравнивать с ростом цен, а не с нулём.</p>
+      <p>Разница между ставкой по вкладу и инфляцией называется реальной доходностью. Если ставка выше инфляции, покупательная способность растёт. Если ниже — деньги формально прибавляются, а купить на них можно меньше.</p>
+
+      <div class="formula">Реальная доходность ≈ <b>номинальная ставка − инфляция</b><br>Точный расчёт: <b>(1 + r) ÷ (1 + i) − 1</b><br>Пересчёт расходов: <b>сумма × (1 + i)</b></div>
+
+      <div class="example">
+        <p class="example-title">Пример 1</p>
+        <p>Вклад под 10% при инфляции 8%: <span class="calc">10 − 8 = 2%</span> реального роста. Точно: <span class="calc">1,10 ÷ 1,08 − 1 ≈ 1,85%</span>.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 2</p>
+        <p>Семья тратит 40 000 ₽ в месяц. Цены выросли на 9%: <span class="calc">40 000 × 1,09 = 43 600 ₽</span> — столько нужно на тот же набор.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 3</p>
+        <p>Вклад под 5% при инфляции 10%: <span class="calc">5 − 10 = −5%</span>. Рублей стало больше, а покупательная способность упала на 5%.</p>
+      </div>
+
+      <div class="mistake"><b>Частая ошибка.</b> Считать номинальную доходность реальной: «вклад под 10% — значит, разбогател на 10%». Без поправки на инфляцию это неверно.</div>
+
+      <details class="self">
+        <summary>Проверьте себя</summary>
+        <div class="self-body">
+          <p><b>1.</b> Вклад 12%, инфляция 9%. Насколько выросла покупательная способность?<br><b>Ответ.</b> Примерно на 3%. Точно: 1,12 ÷ 1,09 − 1 ≈ 2,75%.</p>
+          <p><b>2.</b> Семья тратит 30 000 ₽; цены выросли на 10%. Сколько нужно на тот же набор?<br><b>Ответ.</b> 30 000 × 1,1 = 33 000 ₽.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="theory" id="l4">
+      <p class="sec-no">04</p>
+      <h2>Рынок: спрос и предложение</h2>
+
+      <div class="concepts">
+        <dl>
+          <dt>Спрос</dt>
+          <dd>Готовность покупателей брать товар при разных ценах.</dd>
+          <dt>Величина спроса</dt>
+          <dd>Сколько товара покупают по конкретной цене.</dd>
+          <dt>Предложение</dt>
+          <dd>Готовность продавцов поставлять товар при разных ценах.</dd>
+          <dt>Равновесие</dt>
+          <dd>Ситуация, когда планы покупателей и продавцов совпадают и цена устраивает обе стороны.</dd>
+        </dl>
+      </div>
+
+      <p>Когда цена растёт, покупатели берут меньше — это снижение величины спроса. Сам спрос при этом не меняется: он показывает готовность покупать при каждой возможной цене. Спрос меняется, когда меняются другие условия: доходы, привычки и мода, цены на похожие товары.</p>
+      <p>Предложение работает наоборот: чем выше цена, тем выгоднее продавать и тем больше товара готовы привезти. Рост цены увеличивает величину предложения.</p>
+      <p>Если цена выше равновесной, товара привозят больше, чем покупают, — образуется излишек, и продавцы снижают цену. Если ниже — возникает дефицит, и цена растёт. Так рынок находит равновесие.</p>
+
+      <div class="formula">Цена <b>↑</b> → величина спроса <b>↓</b>, величина предложения <b>↑</b><br>Меняются <b>количества</b>, а не сами спрос и предложение</div>
+
+      <div class="example">
+        <p class="example-title">Пример 1</p>
+        <p>Сахар подорожал. Покупатели берут меньше — величина спроса упала. Заводы привозят больше — величина предложения выросла. Когда цена стабилизируется, рынок в равновесии.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 2</p>
+        <p>Выросли доходы покупателей. При той же цене люди готовы брать больше сахара — это уже сдвиг самого спроса, а не величины спроса.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 3</p>
+        <p>В магазине очередь за гречкой: цена низкая, а товара мало. Это дефицит — признак того, что цена ниже равновесной. Продавцы поднимут цену, часть покупателей уйдёт, очередь исчезнет.</p>
+      </div>
+
+      <div class="mistake"><b>Частая ошибка.</b> Говорить «спрос упал», когда покупатели просто стали брать меньше из-за высокой цены. В этом случае снизилась величина спроса, а сам спрос остался прежним.</div>
+
+      <details class="self">
+        <summary>Проверьте себя</summary>
+        <div class="self-body">
+          <p><b>1.</b> Цена выросла, другие условия не изменились. Что произошло?<br><b>Ответ.</b> Величина спроса снизилась, величина предложения выросла.</p>
+          <p><b>2.</b> Что изменит сам спрос, а не величину спроса?<br><b>Ответ.</b> Рост доходов покупателей, изменение моды, цены на похожие товары. Цена самого товара двигает только величину спроса.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="theory" id="l5">
+      <p class="sec-no">05</p>
+      <h2>Государство: налоги, ВВП, пенсии</h2>
+
+      <div class="concepts">
+        <dl>
+          <dt>НДФЛ</dt>
+          <dd>Налог на доходы физических лиц. Удерживается из начисленной зарплаты.</dd>
+          <dt>Государственный бюджет</dt>
+          <dd>План доходов (в первую очередь налогов) и расходов государства на год.</dd>
+          <dt>ВВП</dt>
+          <dd>Стоимость конечных товаров и услуг, произведённых в стране за год.</dd>
+          <dt>Трансферты</dt>
+          <dd>Пенсии, стипендии, пособия: перераспределение уже созданного дохода, а не новое производство.</dd>
+        </dl>
+      </div>
+
+      <p>Налог удерживают из начисленной зарплаты, поэтому «на руки» приходит меньше. В задачах курса используется ставка 13%; с 2025 года шкала НДФЛ прогрессивная, то есть зависит от годового дохода.</p>
+      <p>ВВП показывает, сколько страна произвела за год. В него входят конечные товары и услуги: стрижка, ремонт по заказу, новый станок. Не входят пенсии, стипендии, переводы между счетами и перепродажа вещей — это перераспределение денег, а не производство.</p>
+      <p>Пенсия по старости — трансферт: государство собирает взносы и налоги и выплачивает их пенсионерам. Поэтому в ВВП пенсия не попадает, хотя для семьи это важный доход.</p>
+
+      <div class="formula">Налог = <b>начислено × 0,13</b><br>На руки = <b>начислено × 0,87</b></div>
+
+      <div class="example">
+        <p class="example-title">Пример 1</p>
+        <p>Начислено 40 000 ₽, НДФЛ 13%: налог <span class="calc">40 000 × 0,13 = 5 200 ₽</span>, на руки <span class="calc">40 000 × 0,87 = 34 800 ₽</span>.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 2</p>
+        <p>Начислено 30 000 ₽: на руки <span class="calc">30 000 × 0,87 = 26 100 ₽</span>.</p>
+      </div>
+
+      <div class="example">
+        <p class="example-title">Пример 3</p>
+        <p>Что входит в ВВП: стрижка в парикмахерской — да, это оплаченная услуга. Пенсия по старости — нет, это трансферт. Перевод между своими счетами — нет, деньги не создают нового продукта.</p>
+      </div>
+
+      <div class="mistake"><b>Частая ошибка.</b> Прибавлять налог к зарплате («13% сверху») или включать пенсию в ВВП. Налог вычитают из начисленной суммы, а пенсия — перераспределение, а не производство.</div>
+
+      <details class="self">
+        <summary>Проверьте себя</summary>
+        <div class="self-body">
+          <p><b>1.</b> Начислено 50 000 ₽, НДФЛ 13%. Сколько на руки?<br><b>Ответ.</b> 50 000 × 0,87 = 43 500 ₽.</p>
+          <p><b>2.</b> Что из перечисленного не входит в ВВП: стрижка, новый станок, пенсия?<br><b>Ответ.</b> Пенсия — это трансферт, нового товара или услуги не создаётся.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="cheat" id="cheat">
+      <p class="sec-no">06</p>
+      <h2>Шпаргалка с формулами</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Что считаем</th><th scope="col">Формула</th><th scope="col">Когда применять</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Альтернативная стоимость</td><td>лучший отвергнутый вариант</td><td>когда выбираете между вариантами</td></tr>
+            <tr><td>Экономические затраты</td><td>явные расходы + упущенная выгода</td><td>когда считаете полную стоимость решения</td></tr>
+            <tr><td>Простой процент</td><td>P × r × n</td><td>вклад без капитализации</td></tr>
+            <tr><td>Сложный процент</td><td>P × (1 + r)<sup>n</sup></td><td>вклад с капитализацией</td></tr>
+            <tr><td>Реальная доходность (примерно)</td><td>r − i</td><td>быстрая оценка</td></tr>
+            <tr><td>Реальная доходность (точно)</td><td>(1 + r) ÷ (1 + i) − 1</td><td>когда нужна точность</td></tr>
+            <tr><td>Расходы после роста цен</td><td>сумма × (1 + i)</td><td>сколько нужно на тот же набор</td></tr>
+            <tr><td>НДФЛ</td><td>начислено × 0,13</td><td>сумма налога</td></tr>
+            <tr><td>Зарплата на руки</td><td>начислено × 0,87</td><td>после вычета налога</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>«Экономика без спешки» — учебный проект. Конспект дополняет интерактивный курс: теория здесь, практика — в заданиях.</p>
+    <p>Ставки и правила приведены для учебных задач; актуальные нормы проверяйте в официальных источниках.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('printBtn').addEventListener('click', function () {
+  window.print();
+});
+
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>

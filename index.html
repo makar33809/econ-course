@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#23456f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Экономика">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="description" content="Интерактивный курс экономики для старшего поколения: пять уроков с пошаговыми разборами, по два задания на тему, объяснение ошибок и итоговый тест.">
+<title>Экономика без спешки — интерактивный курс</title>
+<style>
+:root{
+  color-scheme:light;
+  --paper:#f7f3e9;
+  --card:#fffdf6;
+  --ink:#1a2433;
+  --blue:#23456f;
+  --red:#b23a2f;
+  --green:#2f6b4f;
+  --muted:#5d6b7a;
+  --line:rgba(26,36,51,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);
+  font:18px/1.65 "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:
+    repeating-linear-gradient(180deg,rgba(26,36,51,.05) 0 1px,transparent 1px 34px),
+    var(--paper);
+  -webkit-font-smoothing:antialiased;overflow-wrap:break-word;
+}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.16;letter-spacing:-.01em;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+p{margin:0 0 16px}
+a{color:var(--blue)}
+button{font:inherit}
+
+/* ── шапка ───────────────────────────────────────────── */
+.top{position:sticky;top:0;z-index:10;background:rgba(247,243,233,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.top-in{width:min(1180px,100% - 40px);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none}
+.logo{width:42px;height:42px;flex:none;border:2px solid var(--blue);border-radius:10px;display:grid;place-items:center;font:700 15px Georgia,serif;color:var(--blue)}
+.brand b{display:block;font-family:Georgia,serif;font-size:19px;line-height:1.1}
+.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+.progress{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--muted)}
+.track{width:120px;height:8px;border-radius:99px;background:rgba(26,36,51,.13);overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--blue);transition:width .25s}
+#progressText{font-variant-numeric:tabular-nums;white-space:nowrap}
+.reset{border:1px solid var(--line);background:transparent;border-radius:8px;padding:6px 12px;font-size:14px;color:var(--muted);cursor:pointer}
+.reset:hover{border-color:var(--red);color:var(--red)}
+.reset:focus-visible{outline:3px solid rgba(178,58,47,.35);outline-offset:2px}
+.install{border:1.5px solid var(--blue);background:var(--blue);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:600;color:#fff;cursor:pointer}
+.install:hover{background:#1a3556;border-color:#1a3556}
+.install:focus-visible{outline:3px solid rgba(35,69,111,.4);outline-offset:2px}
+.install[hidden]{display:none}
+.help{max-width:440px;padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+.help::backdrop{background:rgba(26,36,51,.45)}
+.help h2{margin:0 0 12px;font-size:22px}
+.help p{font-size:16px}
+@supports (padding: env(safe-area-inset-top)){
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  .top{padding-top:env(safe-area-inset-top)}
+}
+
+/* ── каркас ──────────────────────────────────────────── */
+.layout{width:min(1180px,100% - 40px);margin:0 auto;display:grid;grid-template-columns:256px minmax(0,1fr);gap:44px;padding:32px 0 72px;align-items:start}
+.rail{position:sticky;top:86px}
+.rail-title{margin:0 0 12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rail ol{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.rail-item{
+  width:100%;display:grid;grid-template-columns:30px minmax(0,1fr) 16px;gap:10px;align-items:center;
+  text-align:left;background:transparent;border:0;border-radius:10px;padding:9px 10px;font-size:15px;color:var(--ink);cursor:pointer;line-height:1.3;
+}
+.rail-item:hover{background:rgba(35,69,111,.07)}
+.rail-item:focus-visible{outline:3px solid rgba(35,69,111,.35);outline-offset:2px}
+.rail-item .num{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rail-item.is-current{background:rgba(35,69,111,.1);font-weight:600}
+.rail-item.is-current .num{border-color:var(--blue);color:var(--blue)}
+.rail-item.is-done .num{background:var(--green);border-color:var(--green);color:#fff}
+.rail-item .tick{color:var(--green);font-size:15px;text-align:right}
+.rail-note{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+
+/* ── урок ────────────────────────────────────────────── */
+.stage{min-width:0}
+.lesson{max-width:760px}
+.kicker{margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+.lesson h2{font-size:clamp(28px,3.6vw,40px);margin:0 0 14px}
+.lesson h2:focus{outline:none}
+.lead{font-size:19px;color:#3a4a5c;margin:0 0 26px;max-width:36em}
+.theory-link{margin:-14px 0 24px;font-size:16px}
+.theory-link a{text-decoration:none;border-bottom:1px solid rgba(35,69,111,.35);padding-bottom:1px}
+.theory-link a:hover{border-bottom-color:var(--blue)}
+.prose p{max-width:38em}
+.rule{margin:24px 0;padding:14px 18px;background:rgba(35,69,111,.07);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;max-width:38em}
+.rule b{color:var(--blue)}
+.example{margin:24px 0;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:38em}
+.example-title{margin:0 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.example p:last-child{margin:0}
+.steps{margin:24px 0;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:38em}
+.steps-title{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.steps ol{margin:0;padding-left:22px;display:grid;gap:8px}
+.steps li{padding-left:4px}
+.mistake{margin:20px 0;padding:12px 16px;background:rgba(178,58,47,.06);border-left:4px solid var(--red);border-radius:0 10px 10px 0;max-width:38em}
+.mistake b{color:var(--red)}
+
+/* ── задания ─────────────────────────────────────────── */
+.task{margin:32px 0 0;padding:20px 22px 18px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:0 14px 14px 0;max-width:680px}
+.task + .task{margin-top:18px}
+.task-label{margin:0 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:600}
+.task-prompt{margin:0 0 16px;font-weight:600;font-size:18px;max-width:34em}
+.opts{display:grid;gap:10px;margin:0 0 16px;clear:both}
+.opt{position:relative;display:flex;gap:12px;align-items:flex-start;padding:12px 15px;border:1.5px solid var(--line);border-radius:10px;background:#fdfbf3;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:rgba(35,69,111,.5)}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt .mark{flex:none;width:21px;height:21px;border-radius:50%;border:2px solid #8d99a6;background:#fff;margin-top:2px;transition:.15s}
+.opt input:checked + .mark{border-color:var(--blue);background:radial-gradient(circle,var(--blue) 0 6px,#fff 7px)}
+.opt input:focus-visible + .mark{outline:3px solid rgba(35,69,111,.4);outline-offset:3px}
+.opt .txt{font-size:17px}
+.opt.is-ok{border-color:var(--green);background:#edf6f0}
+.opt.is-ok .mark{border-color:var(--green);background:var(--green)}
+.opt.is-bad{border-color:var(--red);background:#fbeeeb}
+.opt.is-bad .mark{border-color:var(--red);background:var(--red)}
+.field{display:grid;gap:8px;margin:0 0 16px}
+.field span{font-size:14px;color:var(--muted)}
+.field input{width:100%;max-width:280px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fdfbf3;font:inherit;font-size:18px}
+.field input:focus{outline:3px solid rgba(35,69,111,.3);outline-offset:2px;border-color:var(--blue)}
+.task-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.feedback{margin:14px 0 0;font-weight:600;font-size:17px}
+.feedback.ok{color:var(--green)}
+.feedback.bad{color:var(--red)}
+.feedback.warn{color:#8a6a12}
+.explain{margin:10px 0 0;padding:12px 14px;background:rgba(47,107,79,.08);border-radius:10px;font-size:16px;color:#2b3f4a}
+
+/* ── кнопки ──────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border:2px solid var(--blue);border-radius:10px;background:var(--blue);color:#fff;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:#1a3556;border-color:#1a3556}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.ghost:hover{background:rgba(35,69,111,.08);color:var(--blue)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn:focus-visible{outline:3px solid rgba(35,69,111,.4);outline-offset:3px}
+.lesson-foot{display:flex;gap:12px;justify-content:space-between;margin-top:34px;padding-top:22px;border-top:1px solid var(--line);max-width:760px}
+
+/* ── тест ────────────────────────────────────────────── */
+.quiz{display:grid;gap:16px;margin:0 0 8px}
+.q{margin:0;padding:18px 18px 14px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.q legend{display:flex;float:left;width:100%;gap:10px;align-items:flex-start;padding:0;margin:0 0 14px;font-weight:600;font-size:18px;line-height:1.4}
+.qn{flex:none;width:28px;height:28px;border-radius:50%;background:rgba(35,69,111,.1);color:var(--blue);display:grid;place-items:center;font-family:Georgia,serif;font-size:14px;margin-top:-1px}
+.test-foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.test-score{color:var(--muted);font-size:16px}
+.result{margin-top:16px;padding:16px 18px;border-radius:12px;font-weight:600;font-size:17px;border:1.5px solid var(--line);background:var(--card)}
+.result.good{border-color:var(--green);background:#edf6f0;color:#1d4f39}
+.result.mid{border-color:rgba(169,126,18,.55);background:#fdf7e6;color:#6d5109}
+.result.low{border-color:rgba(178,58,47,.5);background:#fbeeeb;color:#7c2a1e}
+
+/* ── мобильная версия ───────────────────────────────── */
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr;gap:18px;padding-top:20px}
+  .rail{position:static;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,253,246,.6)}
+  .rail-title{margin-bottom:6px}
+  .rail-note{display:none}
+  .rail ol{gap:0}
+  .rail-item{padding:8px 8px}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  .top-in{gap:10px}
+  .progress{width:100%;justify-content:space-between}
+  .track{flex:1;width:auto}
+  .task{padding:16px 16px 14px}
+  .lesson-foot{flex-direction:column-reverse}
+  .lesson-foot .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<h1 class="sr-only">Экономика без спешки — интерактивный курс по экономике для старшего поколения</h1>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#" id="brandLink">
+      <span class="logo" aria-hidden="true">ЭБС</span>
+      <span><b>Экономика без спешки</b><small>курс-тетрадь · 5 уроков и итоговый тест</small></span>
+    </a>
+    <div class="progress">
+      <div class="track" aria-hidden="true"><i id="bar"></i></div>
+      <span id="progressText">Пройдено 0 из 6</span>
+      <button class="install" id="installBtn" type="button">Установить</button>
+      <button class="reset" id="reset" type="button">Сбросить</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="rail" aria-label="Уроки курса">
+    <p class="rail-title">Уроки</p>
+    <ol id="lessonList"></ol>
+    <p class="rail-note">Урок засчитывается, когда решены оба задания. Прогресс сохраняется в этом браузере.</p>
+    <p class="rail-note"><a href="theory.html">Конспект по всем темам →</a></p>
+  </aside>
+  <main class="stage" id="stage"></main>
+</div>
+
+<noscript>
+  <div style="width:min(760px,100% - 40px);margin:24px auto;padding:18px;background:#fffdf6;border:1px solid rgba(26,36,51,.16);border-radius:12px">
+    Для интерактивного курса нужен JavaScript: включите его в настройках браузера и обновите страницу.
+  </div>
+</noscript>
+
+<dialog class="help" id="installHelp">
+  <h2>Установить на телефон</h2>
+  <p><b>Android, Chrome:</b> откройте меню ⋮ и выберите «Установить приложение» или «Добавить на главный экран».</p>
+  <p><b>iPhone, Safari:</b> нажмите «Поделиться» и выберите «На экран Домой».</p>
+  <p>Курс откроется без адресной строки, с иконкой, и будет работать без интернета.</p>
+  <form method="dialog"><button class="btn" type="submit">Понятно</button></form>
+</dialog>
+
+<script>
+const COURSE = [
+  {
+    id: 'l1',
+    title: 'Выбор и цена отказа',
+    kicker: 'Урок 1 из 5',
+    lead: 'Почему «успеть всё» не получается — и как честно посчитать, чего стоит ваше решение.',
+    blocks: [
+      { type: 'p', text: 'Ресурсы — время, деньги, силы — ограничены. Не потому, что их кто-то недодал, а потому что в сутках всегда 24 часа, а в кошельке конечная сумма. Поэтому любой выбор означает отказ: выбрав одно, мы не выбираем другое.' },
+      { type: 'p', text: 'Экономисты называют цену такого отказа альтернативной стоимостью. Это не сумма, которую вы заплатили, а ценность лучшего варианта, от которого отказались.' },
+      { type: 'rule', text: 'Альтернативная стоимость — ценность лучшей из отвергнутых возможностей. Считать нужно лучший вариант, а не все подряд.' },
+      { type: 'example', title: 'Пример', text: 'Иван Петрович может за 3 часа заработать 900 ₽ на подработке — или пойти на бесплатные курсы. Если он выбирает курсы, альтернативная стоимость обучения равна 900 ₽ недополученного дохода. «Курсы же бесплатные» здесь не работает: бесплатны они только если не считать время.' },
+      { type: 'steps', title: 'Как считать', items: [
+        'Выпишите все варианты, между которыми выбираете: подработка, курсы, отдых.',
+        'Оцените каждый в одних единицах — обычно в рублях: сколько денег или дохода он принесёт.',
+        'Посмотрите на варианты, от которых отказались, и возьмите лучший. Его ценность и есть альтернативная стоимость.'
+      ] },
+      { type: 'mistake', text: 'Частая ошибка — складывать все отказы сразу или считать ценой выбора только потраченные деньги. Если вы отказались от кино, чтобы поработать, цена выбора — кино, а не стоимость проезда.' }
+    ],
+    tasks: [
+      {
+        kind: 'choice',
+        prompt: 'Иван Петрович отказался от похода в кино (билет 500 ₽), чтобы выйти на подработку. Что в этом случае будет альтернативной стоимостью подработки?',
+        options: [
+          { text: '500 ₽ — цена билета', correct: false },
+          { text: 'Поход в кино, которым он пожертвовал', correct: true },
+          { text: 'Заработанные деньги', correct: false },
+          { text: 'Ничего: он же ничего не потратил', correct: false }
+        ],
+        explain: 'Подработка обошлась ему в отказ от кино — это и есть альтернативная стоимость. Заработанные деньги — результат выбора, а не его цена.',
+        hint: 'Подумайте не о том, что он получил, а о том, чем заплатил: время можно было потратить иначе.'
+      },
+      {
+        kind: 'number',
+        prompt: 'Вы отказались от подработки — 250 ₽ в час, 4 часа — чтобы провести день на даче. Чему равна альтернативная стоимость поездки на дачу?',
+        unit: 'Ответ, ₽',
+        answer: 1000,
+        explain: '250 × 4 = 1 000 ₽ — столько дохода вы не получили. Это и есть цена выбора.',
+        hint: 'Умножьте ставку в час на количество часов.'
+      }
+    ]
+  },
+  {
+    id: 'l2',
+    title: 'Проценты: как растёт вклад',
+    kicker: 'Урок 2 из 5',
+    lead: 'Простой процент и капитализация — две разные цифры дохода.',
+    blocks: [
+      { type: 'p', text: 'Банк платит процент от суммы вклада. Если 100 000 ₽ лежат под 10% годовых, за год начислят 10 000 ₽ — это простой процент.' },
+      { type: 'p', text: 'Если проценты не забирать, банк прибавит их к вкладу. Тогда в следующем году процент начислят уже на большую сумму. Это капитализация — «проценты на проценты».' },
+      { type: 'rule', text: 'При капитализации каждый год сумма умножается на (1 + ставка). За два года: сумма × 1,1 × 1,1 = сумма × 1,21.' },
+      { type: 'example', title: 'Пример', text: '100 000 ₽ под 10%: через год 110 000 ₽, через два — 121 000 ₽. Лишняя тысяча — это процент, начисленный на прошлогодние проценты.' },
+      { type: 'steps', title: 'Как посчитать доход по вкладу', items: [
+        'Найдите 1% от суммы: разделите её на 100.',
+        'Умножьте на ставку — получите проценты за год.',
+        'Если есть капитализация, прибавьте проценты к вкладу и повторите расчёт для следующего года.'
+      ] },
+      { type: 'mistake', text: 'Частая ошибка — складывать ставки за два года: 10% + 10% = 20%. При капитализации верно умножать: 1,1 × 1,1 = 1,21, то есть 21%.' }
+    ],
+    tasks: [
+      {
+        kind: 'number',
+        prompt: '50 000 ₽ положили под 10% годовых с ежегодной капитализацией. Сколько будет на счёте через 2 года?',
+        unit: 'Ответ, ₽',
+        answer: 60500,
+        explain: '60 500 ₽. Первый год: 50 000 × 1,1 = 55 000 ₽. Второй год: 55 000 × 1,1 = 60 500 ₽.',
+        hint: 'Сначала посчитайте сумму через год, а потом начислите 10% уже на неё.'
+      },
+      {
+        kind: 'choice',
+        prompt: '100 000 ₽ лежат под 10% годовых, проценты не капитализируются. Сколько процентов начислят за два года?',
+        options: [
+          { text: '20 000 ₽', correct: true },
+          { text: '21 000 ₽', correct: false },
+          { text: '10 000 ₽', correct: false },
+          { text: '22 000 ₽', correct: false }
+        ],
+        explain: 'Без капитализации каждый год начисляют 10 000 ₽: 10 000 × 2 = 20 000 ₽. 21 000 ₽ получилось бы с капитализацией.',
+        hint: 'Без капитализации проценты оба года считаются от одной и той же суммы.'
+      }
+    ]
+  },
+  {
+    id: 'l3',
+    title: 'Инфляция: что происходит с деньгами',
+    kicker: 'Урок 3 из 5',
+    lead: 'Почему «доходность 10%» не всегда означает «стало больше».',
+    blocks: [
+      { type: 'p', text: 'Инфляция — это рост общего уровня цен. Если цены выросли на 8%, на ту же сумму можно купить примерно на 8% меньше товаров.' },
+      { type: 'p', text: 'Поэтому важен не номинальный доход — сколько начислили, а реальный — сколько на это можно купить.' },
+      { type: 'rule', text: 'Реальная доходность ≈ номинальная ставка − инфляция. Точный расчёт: (1 + ставка) ÷ (1 + инфляция) − 1.' },
+      { type: 'example', title: 'Пример', text: 'Вклад под 10% при инфляции 8%: реальная доходность около 2%. Денег стало больше, но покупательная способность выросла всего на 2%.' },
+      { type: 'steps', title: 'Как оценить реальную доходность', items: [
+        'Возьмите номинальную ставку — то, что обещает банк.',
+        'Вычтите инфляцию — получится приблизительная реальная доходность.',
+        'Для точного ответа разделите (1 + ставка) на (1 + инфляция) и вычтите единицу.'
+      ] },
+      { type: 'mistake', text: 'Частая ошибка — думать, что при ставке ниже инфляции деньги «просто стоят на месте». На самом деле покупательная способность падает: вклад под 5% при инфляции 10% — это минус 5%.' }
+    ],
+    tasks: [
+      {
+        kind: 'choice',
+        prompt: 'Вклад приносит 12% годовых, инфляция за год — 9%. Насколько примерно выросла покупательная способность?',
+        options: [
+          { text: 'На 21%', correct: false },
+          { text: 'Примерно на 3%', correct: true },
+          { text: 'На 12%', correct: false },
+          { text: 'Не изменилась', correct: false }
+        ],
+        explain: '12% − 9% = 3%. Точный расчёт: 1,12 ÷ 1,09 − 1 ≈ 2,75%, то есть те же примерно 3%.',
+        hint: 'Из номинальной доходности вычтите инфляцию — получится приблизительный реальный рост.'
+      },
+      {
+        kind: 'number',
+        prompt: 'Семья тратит на продукты 30 000 ₽ в месяц. Цены выросли на 10%. Сколько нужно на тот же набор?',
+        unit: 'Ответ, ₽',
+        answer: 33000,
+        explain: '30 000 × 1,1 = 33 000 ₽.',
+        hint: 'Умножьте сумму на 1,1 — это рост на 10%.'
+      }
+    ]
+  },
+  {
+    id: 'l4',
+    title: 'Рынок: почему меняются цены',
+    kicker: 'Урок 4 из 5',
+    lead: 'Спрос и предложение без графиков — на примере сахара в магазине.',
+    blocks: [
+      { type: 'p', text: 'Спрос — это готовность покупателей брать товар при разных ценах. Величина спроса — сколько покупают по конкретной цене. Когда цена растёт, покупают меньше: величина спроса снижается, а сам спрос при этом остаётся прежним.' },
+      { type: 'p', text: 'Предложение работает наоборот: чем выше цена, тем выгоднее продавать, и тем больше товара готовы привезти.' },
+      { type: 'p', text: 'Когда планы покупателей и продавцов совпадают, устанавливается равновесная цена.' },
+      { type: 'rule', text: 'Цена ↑ — величина спроса ↓, величина предложения ↑. Меняется количество покупок, а не сам спрос.' },
+      { type: 'example', title: 'Пример', text: 'Сахар подорожал. Покупатели берут меньше, а заводы привозят больше. Через некоторое время цена останавливается: рынок нашёл равновесие.' },
+      { type: 'steps', title: 'Как понять, что изменилось', items: [
+        'Посмотрите, что именно поменялось: только цена товара или что-то ещё — доходы, привычки, цены на похожие товары.',
+        'Если изменилась только цена — меняется количество покупок. Это величина спроса.',
+        'Если изменились доходы, мода или цены на похожие товары — меняется сам спрос.'
+      ] },
+      { type: 'mistake', text: 'Частая ошибка — говорить «спрос упал», когда покупатели просто стали брать меньше из-за высокой цены. В этом случае снижается величина спроса, а сам спрос остаётся прежним.' }
+    ],
+    tasks: [
+      {
+        kind: 'choice',
+        prompt: 'Цена на сахар выросла, другие условия не изменились. Что произойдёт?',
+        options: [
+          { text: 'Спрос на сахар вырастет', correct: false },
+          { text: 'Величина спроса снизится', correct: true },
+          { text: 'Предложение упадёт', correct: false },
+          { text: 'Покупатели будут брать столько же', correct: false }
+        ],
+        explain: 'Растёт цена — сокращается величина спроса, то есть число покупок по этой цене. Сам спрос — готовность покупать при каждой цене — не меняется.',
+        hint: 'Различайте спрос и величину спроса: первый не двигается, вторая зависит от цены.'
+      },
+      {
+        kind: 'choice',
+        prompt: 'Что изменит сам спрос на сахар, а не величину спроса?',
+        options: [
+          { text: 'Цена сахара выросла', correct: false },
+          { text: 'Выросли доходы покупателей', correct: true },
+          { text: 'Заводы привезли больше сахара', correct: false },
+          { text: 'Цена сахара снизилась', correct: false }
+        ],
+        explain: 'Сам спрос меняют доходы, привычки, мода, цены на похожие товары. Изменение цены самого товара двигает только величину спроса.',
+        hint: 'Спросите себя: изменилось ли что-то, кроме цены на сам сахар?'
+      }
+    ]
+  },
+  {
+    id: 'l5',
+    title: 'Государство: налоги, ВВП, пенсии',
+    kicker: 'Урок 5 из 5',
+    lead: 'Откуда берутся выплаты и что показывает главный показатель страны.',
+    blocks: [
+      { type: 'p', text: 'НДФЛ — налог на доходы физических лиц. Базовая ставка в России — 13%. Налог удерживают из начисленной зарплаты, поэтому «на руки» приходит меньше.' },
+      { type: 'p', text: 'ВВП — стоимость конечных товаров и услуг, произведённых в стране за год. Пенсии, стипендии и другие трансферты в ВВП не входят: это перераспределение уже созданного дохода, а не новое производство.' },
+      { type: 'rule', text: 'На руки = начислено × (1 − ставка налога).' },
+      { type: 'example', title: 'Пример', text: 'Начислено 40 000 ₽, НДФЛ 13%: 40 000 × 0,87 = 34 800 ₽ на руки.' },
+      { type: 'steps', title: 'Как посчитать зарплату «на руки»', items: [
+        'Возьмите начисленную сумму — ту, что указана до вычета налога.',
+        'Умножьте её на 0,13 — получите сумму налога.',
+        'Вычтите налог из начисленной суммы. Или сразу умножьте на 0,87.'
+      ] },
+      { type: 'mistake', text: 'Частая ошибка — включать в ВВП пенсии и стипендии. Это трансферты: доход перераспределяется, но новый товар или услуга не создаётся.' }
+    ],
+    tasks: [
+      {
+        kind: 'number',
+        prompt: 'Начисленная зарплата — 30 000 ₽, НДФЛ — 13%. Сколько работник получит на руки?',
+        unit: 'Ответ, ₽',
+        answer: 26100,
+        explain: '30 000 × 0,87 = 26 100 ₽.',
+        hint: 'Умножьте начисленную сумму на 0,87 — это остаток после налога 13%.'
+      },
+      {
+        kind: 'choice',
+        prompt: 'Что из перечисленного войдёт в ВВП?',
+        options: [
+          { text: 'Пенсия по старости', correct: false },
+          { text: 'Перевод денег между своими счетами', correct: false },
+          { text: 'Ремонт квартиры по заказу', correct: true },
+          { text: 'Подарок внука', correct: false }
+        ],
+        explain: 'Ремонт по заказу — оплаченная услуга, созданная в этом году. Пенсия и переводы перераспределяют деньги, а подарок — не производство.',
+        hint: 'Ищите то, за что заплатили и что было сделано: товар или услуга.'
+      }
+    ]
+  },
+  {
+    id: 'final',
+    title: 'Итоговый тест',
+    kicker: 'Финал',
+    lead: 'Восемь вопросов по всем урокам. Шесть верных ответов — хороший ориентир: примерно столько нужно на отборочном туре.',
+    test: [
+      {
+        q: 'Что такое альтернативная стоимость?',
+        options: ['Сумма всех расходов', 'Ценность лучшего варианта, от которого отказались', 'Цена товара в магазине', 'Налог на доход'],
+        correct: 1,
+        explain: 'Альтернативная стоимость — ценность лучшей из отвергнутых возможностей, а не сумма всех потерь.'
+      },
+      {
+        q: 'Вклад 20 000 ₽ под 10% годовых, проценты не капитализируются. Сколько начислят за первый год?',
+        options: ['200 ₽', '2 000 ₽', '2 200 ₽', '20 000 ₽'],
+        correct: 1,
+        explain: '20 000 × 0,10 = 2 000 ₽ — это простой процент за год.'
+      },
+      {
+        q: '100 000 ₽ положили под 10% с ежегодной капитализацией на 2 года. Сколько будет на счёте?',
+        options: ['120 000 ₽', '121 000 ₽', '110 000 ₽', '122 000 ₽'],
+        correct: 1,
+        explain: '100 000 × 1,1² = 121 000 ₽: во второй год процент начисляется и на проценты.'
+      },
+      {
+        q: 'Вклад приносит 15%, инфляция — 10%. Реальная доходность примерно равна:',
+        options: ['25%', '5%', '15%', '1,5%'],
+        correct: 1,
+        explain: '15% − 10% = 5%. Точно: 1,15 ÷ 1,10 − 1 ≈ 4,5%.'
+      },
+      {
+        q: 'Цена выросла, остальные условия те же. Что происходит?',
+        options: ['Спрос вырастет', 'Величина спроса снизится', 'Предложение исчезнет', 'Ничего не изменится'],
+        correct: 1,
+        explain: 'Дороже — значит, покупают меньше по этой цене: снижается величина спроса, а не сам спрос.'
+      },
+      {
+        q: 'Что из перечисленного не включается в ВВП?',
+        options: ['Стрижка в парикмахерской', 'Новый станок для завода', 'Пенсия по старости', 'Товар, проданный за границу'],
+        correct: 2,
+        explain: 'Пенсия — трансферт: доход перераспределяется, новый товар или услуга не создаётся.'
+      },
+      {
+        q: 'Начислено 50 000 ₽, НДФЛ — 13%. Сколько получит работник на руки?',
+        options: ['43 500 ₽', '44 500 ₽', '50 000 ₽', '56 500 ₽'],
+        correct: 0,
+        explain: '50 000 × 0,87 = 43 500 ₽.'
+      },
+      {
+        q: 'Вы отказались от поездки, чтобы выйти на подработку. Что здесь альтернативная стоимость подработки?',
+        options: ['Заработанные деньги', 'Поездка, от которой отказались', 'Стоимость билетов', 'Ничего'],
+        correct: 1,
+        explain: 'Цена выбора — то, чем пожертвовали. Здесь это поездка.'
+      }
+    ]
+  }
+];
+
+const KEY = 'econ-course-progress-v1';
+let completed = new Set();
+let view = 0;
+
+const stage = document.getElementById('stage');
+const lessonList = document.getElementById('lessonList');
+const progressText = document.getElementById('progressText');
+const bar = document.getElementById('bar');
+const resetBtn = document.getElementById('reset');
+
+try {
+  const raw = localStorage.getItem(KEY);
+  if (raw) {
+    const saved = JSON.parse(raw);
+    if (Array.isArray(saved)) completed = new Set(saved);
+  }
+} catch (e) { /* хранилище недоступно — работаем в памяти */ }
+
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(Array.from(completed))); } catch (e) {}
+}
+
+function updateChrome() {
+  const done = COURSE.filter(function (item) { return completed.has(item.id); }).length;
+  progressText.textContent = 'Пройдено ' + done + ' из ' + COURSE.length;
+  bar.style.width = (done / COURSE.length * 100) + '%';
+}
+
+function renderRail() {
+  lessonList.innerHTML = COURSE.map(function (item, i) {
+    const cls = 'rail-item' + (i === view ? ' is-current' : '') + (completed.has(item.id) ? ' is-done' : '');
+    const mark = completed.has(item.id) ? '✓' : '';
+    const cur = i === view ? ' aria-current="step"' : '';
+    return '<li><button type="button" class="' + cls + '" data-i="' + i + '"' + cur + '>' +
+      '<span class="num">' + (i + 1) + '</span>' +
+      '<span class="t">' + item.title + '</span>' +
+      '<span class="tick" aria-hidden="true">' + mark + '</span></button></li>';
+  }).join('');
+}
+
+function blocksHTML(blocks) {
+  return blocks.map(function (b) {
+    if (b.type === 'rule') return '<div class="rule"><b>Правило.</b> ' + b.text + '</div>';
+    if (b.type === 'example') return '<div class="example"><p class="example-title">' + b.title + '</p><p>' + b.text + '</p></div>';
+    if (b.type === 'steps') {
+      return '<div class="steps"><p class="steps-title">' + b.title + '</p><ol>' +
+        b.items.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ol></div>';
+    }
+    if (b.type === 'mistake') return '<div class="mistake"><b>Частая ошибка.</b> ' + b.text + '</div>';
+    return '<p>' + b.text + '</p>';
+  }).join('');
+}
+
+function taskHTML(task, i) {
+  const body = task.kind === 'choice'
+    ? '<div class="opts">' + task.options.map(function (o, oi) {
+        return '<label class="opt"><input type="radio" name="task' + i + '" value="' + oi + '" id="opt' + i + '_' + oi + '">' +
+          '<span class="mark" aria-hidden="true"></span><span class="txt">' + o.text + '</span></label>';
+      }).join('') + '</div>'
+    : '<label class="field"><span>' + task.unit + '</span>' +
+      '<input id="answer' + i + '" type="text" inputmode="numeric" autocomplete="off" placeholder="Введите число"></label>';
+  return '<section class="task">' +
+    '<p class="task-label">Задание ' + (i + 1) + '</p>' +
+    '<p class="task-prompt">' + task.prompt + '</p>' +
+    body +
+    '<div class="task-actions"><button class="btn" id="checkTask' + i + '" type="button">Проверить</button></div>' +
+    '<p class="feedback" id="feedback' + i + '" role="status" aria-live="polite"></p>' +
+    '<p class="explain" id="explain' + i + '" hidden></p>' +
+    '</section>';
+}
+
+function renderLesson() {
+  const item = COURSE[view];
+  if (item.test) { renderTest(item); return; }
+
+  stage.innerHTML = '<article class="lesson">' +
+    '<p class="kicker">' + item.kicker + '</p>' +
+    '<h2 id="lessonTitle" tabindex="-1">' + item.title + '</h2>' +
+    '<p class="lead">' + item.lead + '</p>' +
+    '<p class="theory-link"><a href="theory.html#' + item.id + '">Полная теория по теме →</a></p>' +
+    '<div class="prose">' + blocksHTML(item.blocks) + '</div>' +
+    item.tasks.map(function (task, i) { return taskHTML(task, i); }).join('') +
+    '<div class="lesson-foot">' +
+      (view > 0 ? '<button class="btn ghost" id="prev" type="button">← Назад</button>' : '<span></span>') +
+      '<button class="btn" id="next" type="button">' + (view === COURSE.length - 2 ? 'К итоговому тесту →' : 'Следующий урок →') + '</button>' +
+    '</div>' +
+    '</article>';
+
+  bindTasks(item);
+  document.getElementById('next').addEventListener('click', function () { go(view + 1); });
+  const prev = document.getElementById('prev');
+  if (prev) prev.addEventListener('click', function () { go(view - 1); });
+}
+
+function bindTasks(item) {
+  let solved = 0;
+
+  item.tasks.forEach(function (task, i) {
+    const check = document.getElementById('checkTask' + i);
+    const feedback = document.getElementById('feedback' + i);
+    const explain = document.getElementById('explain' + i);
+
+    function succeed() {
+      feedback.textContent = 'Верно!';
+      feedback.className = 'feedback ok';
+      explain.hidden = false;
+      explain.textContent = task.explain;
+      const inputs = document.querySelectorAll('.task input');
+      document.querySelectorAll('.task').forEach(function (block, bi) {
+        if (bi === i) {
+          block.querySelectorAll('input').forEach(function (input) { input.disabled = true; });
+        }
+      });
+      check.disabled = true;
+      check.textContent = 'Решено';
+      solved += 1;
+      if (solved === item.tasks.length) {
+        completed.add(item.id);
+        save();
+        renderRail();
+        updateChrome();
+      }
+    }
+
+    check.addEventListener('click', function () {
+      if (task.kind === 'choice') {
+        const chosen = document.querySelector('input[name="task' + i + '"]:checked');
+        if (!chosen) {
+          feedback.textContent = 'Выберите один вариант.';
+          feedback.className = 'feedback warn';
+          return;
+        }
+        const block = check.closest('.task');
+        block.querySelectorAll('.opt').forEach(function (label) { label.classList.remove('is-ok', 'is-bad'); });
+        const label = chosen.closest('label');
+        if (task.options[Number(chosen.value)].correct) {
+          label.classList.add('is-ok');
+          succeed();
+        } else {
+          label.classList.add('is-bad');
+          feedback.textContent = 'Пока не то.';
+          feedback.className = 'feedback bad';
+          explain.hidden = false;
+          explain.textContent = task.hint;
+        }
+      } else {
+        const input = document.getElementById('answer' + i);
+        const raw = input.value.replace(/[^\d,.\-]/g, '').replace(',', '.');
+        const value = Number(raw);
+        if (!raw || !isFinite(value)) {
+          feedback.textContent = 'Введите число.';
+          feedback.className = 'feedback warn';
+          input.focus();
+          return;
+        }
+        if (Math.abs(value - task.answer) < 0.01) {
+          succeed();
+        } else {
+          feedback.textContent = 'Пока не то.';
+          feedback.className = 'feedback bad';
+          explain.hidden = false;
+          explain.textContent = task.hint;
+        }
+      }
+    });
+  });
+}
+
+function renderTest(item) {
+  stage.innerHTML = '<article class="lesson">' +
+    '<p class="kicker">' + item.kicker + '</p>' +
+    '<h2 id="lessonTitle" tabindex="-1">' + item.title + '</h2>' +
+    '<p class="lead">' + item.lead + '</p>' +
+    '<form id="testForm" class="quiz" novalidate>' +
+    item.test.map(function (q, qi) {
+      return '<fieldset class="q" data-qi="' + qi + '">' +
+        '<legend><span class="qn">' + (qi + 1) + '</span>' + q.q + '</legend>' +
+        '<div class="opts">' + q.options.map(function (o, oi) {
+          return '<label class="opt"><input type="radio" name="t' + qi + '" value="' + oi + '">' +
+            '<span class="mark" aria-hidden="true"></span><span class="txt">' + o + '</span></label>';
+        }).join('') + '</div>' +
+        '<p class="explain" hidden></p>' +
+        '</fieldset>';
+    }).join('') +
+    '</form>' +
+    '<div class="test-foot">' +
+      '<button class="btn" id="checkTest" type="button">Проверить тест</button>' +
+      '<span class="test-score" id="testScore"></span>' +
+    '</div>' +
+    '<div class="result" id="result" role="status" aria-live="polite" hidden></div>' +
+    '</article>';
+
+  const fields = Array.prototype.slice.call(stage.querySelectorAll('fieldset.q'));
+  const button = document.getElementById('checkTest');
+  const scoreLabel = document.getElementById('testScore');
+  const result = document.getElementById('result');
+  let checked = false;
+
+  function answeredCount() {
+    return fields.filter(function (f) { return f.querySelector('input:checked'); }).length;
+  }
+
+  function updateScore() {
+    scoreLabel.textContent = 'Отвечено: ' + answeredCount() + ' из ' + fields.length;
+  }
+
+  function clearMarks() {
+    fields.forEach(function (f) {
+      f.classList.remove('missing');
+      f.querySelectorAll('.opt').forEach(function (l) { l.classList.remove('is-ok', 'is-bad'); });
+      f.querySelector('.explain').hidden = true;
+    });
+  }
+
+  stage.querySelectorAll('fieldset.q input').forEach(function (input) {
+    input.addEventListener('change', updateScore);
+  });
+  updateScore();
+
+  button.addEventListener('click', function () {
+    if (checked) {
+      checked = false;
+      clearMarks();
+      stage.querySelectorAll('fieldset.q input').forEach(function (i) { i.disabled = false; i.checked = false; });
+      result.hidden = true;
+      button.textContent = 'Проверить тест';
+      updateScore();
+      return;
+    }
+
+    const missing = fields.filter(function (f) { return !f.querySelector('input:checked'); });
+    if (missing.length) {
+      missing.forEach(function (f) { f.classList.add('missing'); });
+      result.hidden = false;
+      result.className = 'result low';
+      result.textContent = 'Ответьте на все вопросы: осталось ' + missing.length + '.';
+      missing[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    let score = 0;
+    fields.forEach(function (f, i) {
+      const q = item.test[i];
+      const chosen = f.querySelector('input:checked');
+      const label = chosen.closest('label');
+      const ok = Number(chosen.value) === q.correct;
+      if (ok) score += 1;
+      label.classList.add(ok ? 'is-ok' : 'is-bad');
+      if (!ok) f.querySelectorAll('.opt')[q.correct].classList.add('is-ok');
+      const explain = f.querySelector('.explain');
+      explain.hidden = false;
+      explain.textContent = q.explain;
+      f.querySelectorAll('input').forEach(function (input) { input.disabled = true; });
+    });
+
+    checked = true;
+    button.textContent = 'Пройти заново';
+    result.hidden = false;
+    result.className = 'result ' + (score >= 6 ? 'good' : score >= 4 ? 'mid' : 'low');
+    const verdict = score === fields.length
+      ? 'Идеально: все ответы верные.'
+      : score >= 6
+        ? 'Сильный результат — шесть и больше верных ответов.'
+        : score >= 4
+          ? 'Основу вы улавливаете, но пара тем требует повтора.'
+          : 'Стоит пройти уроки ещё раз и вернуться к тесту.';
+    result.textContent = 'Верно ' + score + ' из ' + fields.length + '. ' + verdict;
+
+    completed.add(item.id);
+    save();
+    renderRail();
+    updateChrome();
+  });
+}
+
+function go(index) {
+  if (index < 0 || index >= COURSE.length) return;
+  view = index;
+  renderRail();
+  renderLesson();
+  const title = document.getElementById('lessonTitle');
+  if (title) title.focus({ preventScroll: true });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+lessonList.addEventListener('click', function (event) {
+  const button = event.target.closest('.rail-item');
+  if (button) go(Number(button.dataset.i));
+});
+
+resetBtn.addEventListener('click', function () {
+  if (!completed.size) return;
+  if (confirm('Сбросить прогресс и начать курс заново?')) {
+    completed = new Set();
+    save();
+    view = 0;
+    renderRail();
+    renderLesson();
+    updateChrome();
+  }
+});
+
+document.getElementById('brandLink').addEventListener('click', function (event) {
+  event.preventDefault();
+  go(0);
+});
+
+var installBtn = document.getElementById('installBtn');
+var installHelp = document.getElementById('installHelp');
+var deferredPrompt = null;
+
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+  installBtn.hidden = true;
+}
+
+window.addEventListener('beforeinstallprompt', function (event) {
+  event.preventDefault();
+  deferredPrompt = event;
+  installBtn.hidden = false;
+});
+
+installBtn.addEventListener('click', function () {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+    return;
+  }
+  if (installHelp && typeof installHelp.showModal === 'function') {
+    installHelp.showModal();
+  }
+});
+
+window.addEventListener('appinstalled', function () { installBtn.hidden = true; });
+
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+
+renderRail();
+renderLesson();
+updateChrome();
+</script>
+</body>
+</html>

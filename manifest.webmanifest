@@ -1,0 +1,47 @@
+{
+  "name": "Экономика без спешки",
+  "short_name": "Экономика",
+  "description": "Интерактивный курс экономики для старшего поколения: пять уроков, задания с проверкой, конспект и итоговый тест.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#f7f3e9",
+  "theme_color": "#23456f",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Уроки курса",
+      "short_name": "Уроки",
+      "url": "./"
+    },
+    {
+      "name": "Конспект",
+      "short_name": "Конспект",
+      "url": "theory.html"
+    }
+  ]
+}
